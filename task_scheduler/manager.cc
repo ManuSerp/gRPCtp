@@ -55,7 +55,7 @@ public:
         ClientContext context;
 
 //TODO : send the gRPC call
-        Status status = stub->ProcessOperation(&context, request, reply);
+        Status status = stub_->ProcessOperation(&context, request, &reply);
         char cstr2[reply.message().size() + 1];
         strcpy(cstr2, reply.message().c_str());
         tracepoint(grpc_tracing, manager_recv, cstr2);//DO NOT MODIFY
